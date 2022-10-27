@@ -1,0 +1,10 @@
+CREATE TABLE postac (id_postaci INT auto_increment PRIMARY KEY, nazwa VARCHAR(40), rodzaj ENUM('wiking', 'ptak', 'kobieta'), data_ur DATE, wiek INT UNSIGNED);
+
+INSERT INTO postac values(0, 'Bjorn', 'wiking', '2022-03-11', 24);
+INSERT INTO postac values(1, 'Drozd', 'ptak', '2021-05-11', 28);
+INSERT INTO postac values(3, 'Tesciowa', 'kobieta', '2008-02-21', 14);
+UPDATE postac SET wiek=88 WHERE nazwa = 'Tesciowa';
+
+SELECT * FROM postac;
+
+Tomasz Budzejko IO1
