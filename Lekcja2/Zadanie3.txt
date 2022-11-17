@@ -1,0 +1,8 @@
+UPDATE postac SET nazwa_statku = 'Escapade' WHERE nazwa LIKE '%a%';
+
+UPDATE statek SET max_ladownosc = 0.7 * max_ladownosc WHERE data_wodowania BETWEEN '1900-01-01' AND '1999-12-31';
+
+ALTER TABLE postac ADD CHECK (wiek < 1000);
+
+Tomasz Budzejko IO 1
+

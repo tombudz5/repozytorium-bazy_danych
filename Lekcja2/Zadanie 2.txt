@@ -1,0 +1,17 @@
+ALTER TABLE postac ADD pesel VARCHAR(11) NOT NULL;
+
+#dodaje jakieś peselem żeby pola nie były puste i żeby móc dodać primary key.
+
+UPDATE postac SET pesel = '22341129221' WHERE nazwa = 'Bjorn';
+UPDATE postac SET pesel = '22341129212' WHERE nazwa = 'Tesciowa';
+UPDATE postac SET pesel = '22341129241' WHERE nazwa = 'Magnus';
+UPDATE postac SET pesel = '22341129261' WHERE nazwa = 'Stjorn';
+UPDATE postac SET pesel = '22341129251' WHERE nazwa = 'So';
+
+ALTER TABLE postac ADD PRIMARY KEY (pesel);
+
+ALTER TABLE postac MODIFY rodzaj ENUM('wiking', 'ptak', 'kobieta', 'syrena');
+
+INSERT INTO postac(id_postaci, nazwa, rodzaj, wiek, pesel) VALUES(6, 'Gertruda Nieszczera', 'syrena', 19, '12312312367');
+
+TOMASZ BUDZEJKO IO 1

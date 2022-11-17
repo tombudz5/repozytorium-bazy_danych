@@ -1,0 +1,15 @@
+UPDATE marynarz SET nazwa_statku = 'NULL';
+
+DELETE FROM marynarz WHERE rodzaj = 'wiking' AND nazwa = 'Bjorn';
+
+ALTER TABLE postac DROP FOREIGN KEY postac_ibfk_1;
+
+DELETE FROM statek;
+
+ALTER TABLE postac DROP FOREIGN KEY postac_ibfk_2;
+
+DROP TABLE statek;
+
+INSERT INTO zwierz SELECT id_postaci, nazwa, wiek FROM postac WHERE rodzaj = 'waz' OR rodzaj = 'syrena' OR rodzaj = 'ptak';
+
+TOMASZ BUDZEJKO IO 1
