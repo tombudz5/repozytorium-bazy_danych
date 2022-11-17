@@ -1,5 +1,0 @@
-ALTER TABLE postac ADD pesel SMALLINT(11);
-
-Więcej nie zdążyłem
-
-TOMASZ BUDZEJKO IO 1
