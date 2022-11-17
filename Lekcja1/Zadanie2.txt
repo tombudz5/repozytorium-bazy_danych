@@ -1,0 +1,11 @@
+CREATE TABLE walizka(id_walizki INT auto_increment PRIMARY KEY, pojemnosc INT UNSIGNED, kolor ENUM('rozowy', 'czerwony', 'teczowy', 'zolty'), id_wlasciciela INT, FOREIGN KEY(id_wlasciciela) REFERENCES postac(id_postaci) ON DELETE CASCADE);
+
+ALTER TABLE walizka ALTER kolor SET DEFAULT 'rozowy';
+
+INSERT INTO walizka values(0, 10, default, 1);
+
+select * from walizka;
+
+
+Tomasz Budzejko IO1
+
