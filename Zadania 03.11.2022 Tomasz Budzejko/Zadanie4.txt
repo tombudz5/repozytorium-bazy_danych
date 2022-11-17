@@ -1,6 +1,0 @@
-CREATE TABLE przetwory (id_przetworu INT PRIMARY KEY, rok_produkcji INT DEFAULT '1654', id_wykonawcy INT, FOREIGN KEY(id_wykonawcy) REFERENCES postac(id_postaci), zawartosc VARCHAR(50), dodatek VARCHAR(50) DEFAULT 'papryczka chilli', id_konsumenta INT, FOREIGN KEY(id_konsumenta) REFERENCES postac(id_postaci);
-
-INSERT INTO przetwory VALUES (2, default, 1, 'Bigos', default, 3);
-
-TOMASZ BUDZEJKO 1IO
-
