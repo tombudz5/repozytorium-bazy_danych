@@ -1,0 +1,4 @@
+SELECT * FROM kreatura WHERE (rodzaj != 'wiedzma' AND udzwig > 50);
+SELECT * FROM zasob WHERE waga > 2 AND waga < 5;
+SELECT * FROM kreatura WHERE nazwa LIKE '%or%' AND udzwig > 30 AND udzwig < 70;
+

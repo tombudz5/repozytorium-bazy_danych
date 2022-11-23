@@ -1,0 +1,5 @@
+SELECT nazwa, CONCAT(waga*0.7) AS waga_wlasciwego_jedzenia, CONCAT(waga*0.3) AS waga_odpadow FROM zasob WHERE rodzaj = 'jedzenie';
+SELECT * FROM zasob WHERE rodzaj IS NULL;
+SELECT DISTINCT nazwa FROM zasob WHERE LEFT(nazwa, 2) IN ('Ba') OR RIGHT(nazwa, 2) IN
+('os') ORDER BY nazwa ASC;
+

@@ -1,0 +1,5 @@
+SELECT * FROM zasob WHERE Extract(MONTH FROM dataPozyskania) = '7' OR Extract(MONTH FROM dataPozyskania) = '8';
+SELECT * FROM zasob WHERE Month(dataPozyskania) = '7' OR Month(dataPozyskania) = '8';
+SELECT * FROM zasob WHERE Month(dataPozyskania) IN ('7', '8');
+SELECT * FROM zasob WHERE rodzaj IS NOT NULL ORDER BY waga ASC;
+SELECT * FROM kreatura ORDER BY dataUr DESC LIMIT 5;

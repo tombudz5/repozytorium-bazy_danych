@@ -1,0 +1,3 @@
+SELECT DISTINCT rodzaj FROM zasob;
+SELECT CONCAT(nazwa, ' - ', rodzaj) AS nazwa_rodzaj FROM kreatura WHERE LEFT(rodzaj, 2) IN ('wi');
+SELECT nazwa, CONCAT(waga*ilosc) AS calkowita_waga FROM zasob WHERE Year(dataPozyskania) >= 2000 AND Year(dataPozyskania) <= 2007;
