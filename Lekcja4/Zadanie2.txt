@@ -1,0 +1,6 @@
+SELECT nazwa, SUM(waga*ilosc) AS SUMA_WAG FROM zasob GROUP BY nazwa;
+
+SELECT nazwa, AVG(waga) AS srednia_waga FROM zasob GROUP BY nazwa HAVING SUM(ilosc) >= 4 AND SUM(waga*ilosc) > 10;
+
+SELECT rodzaj, COUNT(DISTINCT nazwa) AS liczba_rodzajow FROM zasob GROUP BY rodzaj HAVING SUM(ilosc) > 1;
+
