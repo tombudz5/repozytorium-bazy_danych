@@ -1,0 +1,99 @@
+
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+bool czyNalezy(vector<int> tab, int element) {
+    for (int i = 0; i < tab.size(); i++) {
+        if (tab[i] == element) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool czyZawiera(vector<int> tab, vector<int> tab2) {
+    for (int i = 0; i < tab2.size(); i++) {
+        if (!czyNalezy(tab, tab2[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+void wypisz(vector<int> tab) {
+    for (int i = 0; i < tab.size(); i++) {
+        cout << tab[i] << endl;
+    }
+}
+
+int max(vector<int> tab) {
+    int wynik = tab[0];
+    for (int i = 0; i < tab.size(); i++) {
+        if (tab[i] > wynik) {
+            wynik = tab[i];
+        }
+    }
+    return wynik;
+}
+
+vector<int> unikalnosc(vector<int> tab) {
+    vector<int> wynik;
+    for (int i = 0; i < tab.size(); i++) {
+        if (!czyNalezy(wynik, tab[i])) {
+            wynik.push_back(tab[i]);
+        }
+    }
+    return wynik;
+}
+
+int suma(vector<int> tab) {
+    int wynik = 0;
+    for (int i = 0; i < tab.size(); i++) {
+        wynik += tab[i];
+    }
+    return wynik;
+}
+
+double srednia(vector<int> tab) {
+    double wynik = double(suma(tab)) / tab.size();
+    return wynik;
+}
+
+vector<int> podzielnosc(vector<int> tab, int dzielnik) {
+    vector<int> wynik;
+    for (int i = 0; i < tab.size(); i++) {
+        if (tab[i] % dzielnik == 0 && !czyNalezy(wynik, tab[i])) {
+            wynik.push_back(tab[i]);
+        }
+    }
+    return wynik;
+}
+
+int main()
+{
+    vector<int> tab = { 1, 5, 2, 2, 7, 22, 3 };
+    vector<int> tab2 = { 5, 7, 22 };
+    int element = 3;
+
+    wypisz(tab);
+    cout << "Max: " << max(tab) << endl;
+    cout << "Czy nalezy? " << czyNalezy(tab, element) << endl;
+    cout << "Czy zawiera? " << czyZawiera(tab, tab2) << endl;
+    wypisz(unikalnosc(tab));
+
+    vector<int> tab3 = { 2, 6, 8, 5, 4, 12, 16, 15, 3, 2 };
+
+    cout << "Suma vektora 3 jest rowna: " << suma(tab3) << endl;
+
+    cout << "Srednia arytmetyczna vektora 3 jest rowna: " << srednia(tab3) << endl;
+
+    int dzielnik = 4;
+
+    cout << "Liczby podzielne przez 4 z vektora 3: " << endl;
+    wypisz(podzielnosc(tab3, dzielnik));
+
+    return 0;
+}
