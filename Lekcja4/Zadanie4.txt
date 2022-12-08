@@ -1,0 +1,7 @@
+SELECT kreatura.nazwa, zasob.nazwa FROM kreatura JOIN ekwipunek ON kreatura.idKreatury = ekwipunek.idKreatury JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu WHERE kreatura.rodzaj
+= 'wiking' AND Year(kreatura.dataUr) >= 1670 AND Year(kreatura.dataUr) <= 1679;
+
+SELECT kreatura.nazwa, zasob.nazwa FROM kreatura JOIN ekwipunek ON kreatura.idKreatury = ekwipunek.idKreatury JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu WHERE zasob.rodzaj = 'jedzenie' ORDER BY kreatura.dataUr DESC LIMIT 5;
+
+SELECT CONCAT(kr.idKreatury, ' - ', kr2.idKreatury) AS id_kreatur, CONCAT(kr.nazwa, ' - ', kr2.nazwa) AS nazwy_kreatur FROM kreatura AS kr JOIN kreatura AS kr2 ON kr.idKreatury+5 = kr2.idKreatury;
+

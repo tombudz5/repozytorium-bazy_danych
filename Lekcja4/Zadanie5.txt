@@ -1,0 +1,4 @@
+SELECT kreatura.rodzaj, AVG(zasob.waga) AS srednia_waga FROM kreatura JOIN ekwipunek ON kreatura.idKreatury = ekwipunek.IdKreatury JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu WHERE kreatura.rodzaj != 'malpa' AND kreatura.rodzaj != 'waz' GROUP BY kreatura.rodzaj HAVING SUM(ekwipunek.ilosc) < 30;
+
+SELECT kreatura.rodzaj, AVG(zasob.waga) AS srednia_waga FROM kreatura JOIN ekwipunek ON kreatura.idKreatury = ekwipunek.IdKreatury JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu WHERE kreatura.rodzaj != 'malpa' AND kreatura.rodzaj != 'waz' GROUP BY kreatura.rodzaj HAVING SUM(ekwipunek.ilosc) < 30;
+
