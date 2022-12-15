@@ -1,0 +1,17 @@
+CREATE TABLE uczestnicy AS SELECT * FROM wikingowie.uczestnicy;
+CREATE TABLE etapy_wyprawy AS SELECT * FROM wikingowie.etapy_wyprawy;
+CREATE TABLE sektor AS SELECT * FROM wikingowie.sektor;
+CREATE TABLE wyprawa AS SELECT * FROM wikingowie.wyprawa;
+SELECT kreatura.nazwa, uczestnicy.id_wyprawy FROM kreatura LEFT JOIN uczestnicy ON kreatura.idKreatury = uczestnicy.id_uczestnika WHERE id_wyprawy IS NULL;
+
+SELECT GROUP_CONCAT(DISTINCT wyprawa.nazwa), SUM(ekwipunek.ilosc), uczestnicy.id_uczestnika FROM wyprawa JOIN uczestnicy ON wyprawa.id_wyprawy = uczestnicy.id_wyprawy JOIN ekwipunek
+ON uczestnicy.id_uczestnika = ekwipunek.idKreatury GROUP BY uczestnicy.id_uczestnika;
+
+LUB
+
+SELECT GROUP_CONCAT(DISTINCT wyprawa.nazwa), SUM(ekwipunek.ilosc), kreatura.nazwa FROM wyprawa JOIN uczestnicy ON wyprawa.id_wyprawy = uczestnicy.id_wyprawy JOIN ekwipunek
+ON uczestnicy.id_uczestnika = ekwipunek.idKreatury JOIN kreatura ON kreatura.idKreatury = uczestnicy.id_uczestnika GROUP BY uczestnicy.id_uczestnika;
+
+
+
+
