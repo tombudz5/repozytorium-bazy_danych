@@ -1,4 +1,4 @@
 SELECT wyprawa.nazwa AS nazwa_wyprawy, COUNT(uczestnicy.id_uczestnika) AS liczba_uczestnikow, GROUP_CONCAT(kreatura.nazwa) AS nazwy_uczestnikow FROM wyprawa JOIN uczestnicy ON wyprawa.id_wyprawy = uczestnicy.id_wyprawy JOIN kreatura ON kreatura.idKreatury = uczestnicy.id_uczestnika GROUP BY wyprawa.nazwa;
 
-SELECT sektor.nazwa AS nazwa_sektora, kreatura.nazwa AS kierownik, etapy_wyprawy.kolejnosc, etapy_wyprawy.dziennik FROM etapy_wyprawy JOIN sektor ON sektor.id_sektora = etapy_wyprawy.sektor JOIN wyprawa ON wyprawa.id_wyprawy = etapy_wyprawy.idWyprawy JOIN kreatura ON wyprawa.kierownik = kreatura.idKreatury ORDER BY wyprawa.data_rozpoczecia;
+SELECT wyprawa.nazwa AS nazwa_wyprawy, sektor.nazwa AS nazwa_sektora, kreatura.nazwa AS kierownik, etapy_wyprawy.kolejnosc, etapy_wyprawy.dziennik FROM etapy_wyprawy JOIN sektor ON sektor.id_sektora = etapy_wyprawy.sektor JOIN wyprawa ON wyprawa.id_wyprawy = etapy_wyprawy.idWyprawy JOIN kreatura ON wyprawa.kierownik = kreatura.idKreatury ORDER BY wyprawa.data_rozpoczecia, wyprawa.nazwa ASC, etapy_wyprawy.kolejnosc ASC;
 
