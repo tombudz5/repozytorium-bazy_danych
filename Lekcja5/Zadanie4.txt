@@ -1,0 +1,6 @@
+SELECT wyprawa.nazwa, IFNULL(SUM(LENGTH(etapy_wyprawy.dziennik)), 0) AS suma_znakow FROM wyprawa LEFT JOIN etapy_wyprawy ON wyprawa.id_wyprawy = etapy_wyprawy.idWyprawy GROUP BY wyprawa.nazwa HAVING suma_znakow < 400;
+
+SELECT wyprawa.nazwa, IFNULL(SUM(zasob.waga*ekwipunek.ilosc)/COUNT(uczestnicy.id_uczestnika), 0) AS srednia_waga FROM wyprawa LEFT JOIN uczestnicy ON wyprawa.id_wyprawy = uczestnicy.id_wyprawy LEFT JOIN ekwipunek ON uczestnicy.id_uczestnika = ekwipunek.idKreatury LEFT JOIN zasob ON ekwipunek.idZasobu = zasob.idZasobu GROUP BY wyprawa.nazwa;
+
+
+
