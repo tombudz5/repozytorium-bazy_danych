@@ -2,6 +2,8 @@ ALTER TABLE postac MODIFY rodzaj ENUM('wiking', 'ptak', 'kobieta', 'syrena', 'wa
 
 INSERT INTO postac(id_postaci, nazwa, rodzaj, data_ur, wiek, nazwa_statku, pesel) VALUES(8, 'Loko', 'waz', '1956-04-12', 66, NULL, '76543827361');
 
+CREATE TABLE marynarz LIKE postac;
+
 INSERT INTO marynarz SELECT * FROM postac WHERE nazwa_statku != 'NULL';
 
 
