@@ -1,6 +1,7 @@
 SELECT sektor.nazwa, COUNT(etapy_wyprawy.sektor) AS liczba_odwiedzin FROM etapy_wyprawy RIGHT JOIN sektor ON sektor.id_sektora = etapy_wyprawy.sektor GROUP BY sektor.nazwa;
 
-SELECT kreatura.nazwa AS "nazwa_postaci", (CASE WHEN (COUNT(etapy_wyprawy.sektor) != 0) THEN "bral udzial w wyprawie" ELSE "nie bral udzialu w wyprawie" END) AS "bral/nie bral udzialu" FROM etapy_wyprawy JOIN sektor ON sektor.id_sektora = etapy_wyprawy.sektor JOIN uczestnicy ON uczestnicy.id_wyprawy = etapy_wyprawy.idWyprawy RIGHT JOIN kreatura ON kreatura.idKreatury = uczestnicy.id_uczestnika GROUP BY uczestnicy.id_uczestnika;
+SELECT kreatura.nazwa, CASE WHEN COUNT(uczestnicy.id_wyprawy) = 0 THEN 'nie bral udzialu' ELSE 'bral udzial' END AS czy_bral_udzial FROM kreatura LEFT JOIN uczestnicy ON kreatura.idKreatury = uczestnicy.id_uczestnika GROUP BY kreatura.nazwa;
+
 
 
 
